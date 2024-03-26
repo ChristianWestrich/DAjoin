@@ -632,21 +632,24 @@ function renderEditSubTasks(id) {
 		for (let i = 0; i < task['subtasks'].length; i++) {
 			const element = task.subtasks[i];
 			foundSubTasks.push(element);
+
 		}
 	}
+	console.log(foundSubTasks)
+
 
 	if (foundSubTasks.length > 0) {
 		for (let i = 0; i < foundSubTasks.length; i++) {
 			let subTask = foundSubTasks[i];
 			container.innerHTML += /*HTML*/ `
    
-   <li class="subtask-container">
+   <li  class="subtask-container">
     <div class="subtask-text-container">
-      <span>${subTask}</span>
+      <span>${subTask.description}</span>
     </div>
     <div class="subtask-button-container">
-      <img src="../assets/img/contact/edit.svg" alt="Edit" class="subtask-button">
-      <img src="../assets/img/contact/delete.svg" alt="Delete" class="subtask-button">
+      <img src="../assets/img/contact/edit.svg" alt="Edit" class="subtask-button" onclick="editSubtaskPopup()">
+      <img src="../assets/img/contact/delete.svg" alt="Delete" class="subtask-button" onclick="deleteSubTaskPopup()">
     </div>
   </li> 
        
@@ -655,6 +658,14 @@ function renderEditSubTasks(id) {
      `;
 		}
 	}
+}
+
+function editSubtaskPopup(){
+
+}
+
+function deleteSubTaskPopup(){
+
 }
 
 async function saveEditedTask(id) {
