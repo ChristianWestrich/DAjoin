@@ -496,16 +496,17 @@ async function moveTo(status) {
 	await saveToServer('tasks', todos);
 
 	updateHTML();
-	removeHighlight();
 }
 
 function highlight(event) {
 	event.preventDefault();
-	let targetContainer = event.target;
+	let target = event.target;
+	let targetContainer = target;
 	targetContainer.style.backgroundColor = 'white';
 }
 
 function removeHighlight(event) {
+
 	let targetContainer = event.target;
 	targetContainer.style.backgroundColor = '';
 }
