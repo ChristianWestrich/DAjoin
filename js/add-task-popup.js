@@ -26,10 +26,11 @@ function addTaskPopUp(status) {
                 >Title<span class="add-task-req-star">*</span></label
               >
               <input
+                name="add-task-title-input";
                 class="add-task-label-input"
                 required
                 onchange="checkRequirements()"
-                type="text"
+                type="text";
                 id="add-task-title-input"
                 placeholder="Enter a title"
               />
@@ -76,10 +77,11 @@ function addTaskPopUp(status) {
           <div class="add-task-divider"></div>
           <div class="add-task-input-right">
             <div class="input-container">
-              <label for="add-task-label-input"
+              <label for="add-task-date-input"
                 >Due date<span class="add-task-req-star">*</span></label
               >
               <input
+                name="add-task-date-input";
                 class="add-task-label-input"
                 required
                 onchange="checkRequirements()"
@@ -127,6 +129,7 @@ function addTaskPopUp(status) {
                 >Category<span class="add-task-req-star">*</span></label
               >
               <select
+                name="add-task-category-select"
                 class="select"
                 id="add-task-category-select"
                 required
