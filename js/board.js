@@ -4,11 +4,8 @@ let subTaskStateArray = [];
 let todos = [];
 contacts = [];
 
-console.log(todos);
-
 function initBoard() {
 	loadFromServer('contacts', contacts);
-	nextTaskID = getNextTaskIDBoard();
 }
 
 function updateBoard() {
@@ -16,19 +13,6 @@ function updateBoard() {
 	closePopupTask();
 }
 
-function getNextTaskIDBoard() {
-	if (todos.length === 0) {
-		return 0;
-	}
-
-	const taskIDs = todos.map((task) => task.taskID);
-	if (taskIDs.some(isNaN)) {
-		return 1;
-	}
-
-	const maxTaskID = Math.max(...taskIDs);
-	return maxTaskID + 1;
-}
 
 function searchTasks() {
 	let searchQuery = document.getElementById('search').value.toLowerCase();
@@ -375,7 +359,6 @@ function displayPriority(task) {
 function displaySubTasks(task) {
 	let container = document.getElementById('todo-subtask-list-container');
 	let foundSubTasks = [];
-	console.log(foundSubTasks);
 	let todo = task;
 	container.innerHTML = '';
 
