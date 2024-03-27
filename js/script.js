@@ -85,6 +85,21 @@ async function loadIdFromServer(key) {
 	}
 }
 
+async function loadTaskIdFromServer(key) {
+	const url = /*html*/ `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+	const response = await fetch(url);
+	if (response.ok) {
+		let responseData = await response.json();
+		nextTaskID = JSON.parse(responseData.data.value);
+	} else {
+		console.error(
+			'Failed to fetch data:',
+			response.status,
+			response.statusText
+		);
+	}
+}
+
 function loadCurrentUser() {
 	let currentUserToText = localStorage.getItem('currentUser');
 	currentUser = JSON.parse(currentUserToText);

@@ -1,6 +1,6 @@
 //relevante Variablen
 let tasks = [];
-let nextTaskID;
+let nextTaskID = 0;
 let prio = 2; //Urgent = 1, Medium = 2, Low = 3
 let contactsToAssign = [];
 const form = document.getElementById("add-task-form");
@@ -9,7 +9,7 @@ const form = document.getElementById("add-task-form");
 async function initTasks() {
   await loadFromServer("contacts", contacts);
   await loadFromServer("tasks", tasks);
-  nextTaskID = getNextTaskID();
+  await loadTaskIdFromServer('taskId');
   renderAssignToContacts("add-task-assign-select", contacts);
   setDefaultPriority(prio);
 }
@@ -19,6 +19,7 @@ function getNextTaskID() {
     return 0;
   }
 
+  
   const taskIDs = tasks.map((task) => task.taskID);
   if (taskIDs.some(isNaN)) {
     return 1;
@@ -436,7 +437,7 @@ function handleCreateTaskClick(status = "toDo") {
   }
 }
 
-function createTask(status) {
+async function createTask(status) {
   const title = getTitle();
   const description = getDescription();
   const assignedTo = contactsToAssign;
@@ -462,6 +463,7 @@ function createTask(status) {
   };
 
   nextTaskID++;
+  saveToServer('taskId', nextTaskID)
   return newTask;
 }
 
