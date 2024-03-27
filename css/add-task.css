@@ -436,12 +436,58 @@ ul {
   border-radius: 4px;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 1200px) {
+  .add-task-input {
+    flex-direction: column;
+  }
+
+  .add-task-divider {
+    height: 1px;
+    width: 100%;
+    margin: 20px 0 20px 0;
+  }
+  .add-task-form {
+    width: 100%;
+  }
+
+  .add-task-input-left {
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .add-task-content {
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 13vh;
+    padding-bottom: 13vh;
+  }
+}
+
+@media (max-width: 550px) {
+  .add-task-footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+
+  } 
+}
+
+@media (max-width: 550px) {
   .add-task-content {
     padding-left: 20px;
     padding-right: 20px;
     flex: 1;
   }
+
+  .add-task-footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 0;
+  } 
 
   .add-task-form {
     width: 100%;
@@ -487,4 +533,15 @@ ul {
   textarea {
     min-height: 80px;
   }
+}
+
+@media (max-width: 350px) {
+
+  .add-task-kill-all-input-btn {
+    width: 100px;
+  }
+  .add-task-create-btn {
+    width: 150px;
+  }
+
 }
