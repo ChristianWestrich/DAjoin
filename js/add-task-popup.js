@@ -22,7 +22,7 @@ function addTaskPopUp(status) {
         <div class="add-task-input">
           <div class="add-task-input-left">
             <div class="input-container">
-              <label for="add-task-title" class="add-task-label"
+              <label for="add-task-title-input" class="add-task-label"
                 >Title<span class="add-task-req-star">*</span></label
               >
               <input
@@ -40,7 +40,7 @@ function addTaskPopUp(status) {
               </div>
             </div>
             <div class="input-container">
-              <label class="add-task-label" for="add-task-description"
+              <label class="add-task-label" for="add-task-description-input"
                 >Description</label
               >
               <textarea
@@ -50,7 +50,7 @@ function addTaskPopUp(status) {
               ></textarea>
             </div>
             <div class="input-container">
-              <label class="add-task-label" for="add-task-assign"
+              <label class="add-task-label" for="add-task-assign-select"
                 >Assigned to</label
               >
               <select
@@ -76,7 +76,7 @@ function addTaskPopUp(status) {
           <div class="add-task-divider"></div>
           <div class="add-task-input-right">
             <div class="input-container">
-              <label for="add-task-label"
+              <label for="add-task-label-input"
                 >Due date<span class="add-task-req-star">*</span></label
               >
               <input
@@ -94,7 +94,7 @@ function addTaskPopUp(status) {
               </div>
             </div>
             <div class="input-container">
-              <label class="add-task-label" for="add-task-prio">Prio</label>
+              <label class="add-task-label" for="add-task-prio-input">Prio</label>
               <div class="button-container" id="add-task-prio-input">
                 <button
                   class="white"
@@ -123,7 +123,7 @@ function addTaskPopUp(status) {
               </div>
             </div>
             <div class="input-container">
-              <label for="add-task-label"
+              <label for="add-task-category-select"
                 >Category<span class="add-task-req-star">*</span></label
               >
               <select
@@ -141,7 +141,7 @@ function addTaskPopUp(status) {
               </select>
             </div>
             <div class="input-container">
-              <label class="add-task-label" for="">Subtasks</label>
+              <label class="edit-subtask-input" for="">Subtasks</label>
               <div class="edit-subtask-position">
                 <input
                   class="edit-subtask-input"
