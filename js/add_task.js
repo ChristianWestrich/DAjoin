@@ -1,6 +1,6 @@
 //relevante Variablen
 let tasks = [];
-let nextTaskID = 0;
+let nextTaskID;
 let prio = 2; //Urgent = 1, Medium = 2, Low = 3
 let contactsToAssign = [];
 const form = document.getElementById("add-task-form");
@@ -14,20 +14,7 @@ async function initTasks() {
   setDefaultPriority(prio);
 }
 
-function getNextTaskID() {
-  if (tasks.length === 0) {
-    return 0;
-  }
 
-  
-  const taskIDs = tasks.map((task) => task.taskID);
-  if (taskIDs.some(isNaN)) {
-    return 1;
-  }
-
-  const maxTaskID = Math.max(...taskIDs);
-  return maxTaskID + 1;
-}
 
 //Namen auslesen
 function getTitle() {
@@ -437,7 +424,7 @@ function handleCreateTaskClick(status = "toDo") {
   }
 }
 
-async function createTask(status) {
+function createTask(status) {
   const title = getTitle();
   const description = getDescription();
   const assignedTo = contactsToAssign;
