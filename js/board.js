@@ -651,11 +651,10 @@ function renderEditSubTasks(id) {
 
 		}
 	}
-	console.log(foundSubTasks)
-
 
 	if (foundSubTasks.length > 0) {
 		for (let i = 0; i < foundSubTasks.length; i++) {
+
 			let subTask = foundSubTasks[i];
 			container.innerHTML += /*HTML*/ `
    
@@ -664,8 +663,7 @@ function renderEditSubTasks(id) {
       <span>${subTask.description}</span>
     </div>
     <div class="subtask-button-container">
-      <img src="../assets/img/contact/edit.svg" alt="Edit" class="subtask-button" onclick="editSubtaskPopup()">
-      <img src="../assets/img/contact/delete.svg" alt="Delete" class="subtask-button" onclick="deleteSubTaskPopup()">
+      <img src="../assets/img/contact/delete.svg" alt="Delete" class="subtask-button" onclick="deleteSubTaskPopup(${i}, ${id})">
     </div>
   </li> 
        
@@ -676,12 +674,20 @@ function renderEditSubTasks(id) {
 	}
 }
 
-function editSubtaskPopup(){
 
-}
+async function deleteSubTaskPopup(i, id){
+	const task = todos.find((t) => t.taskID === id);
+	 task.subtasks.splice(i, 1);
 
-function deleteSubTaskPopup(){
-
+	for (let i = 0; i < todos.length; i++) {
+		if (todos[i].taskID === task.taskID) {
+			todos[i] = task;
+		}
+	}
+	await saveToServer('tasks', todos);
+	loadFromServer('tasks', todos);
+	updateHTML();
+	openPopup(id)
 }
 
 async function saveEditedTask(id) {
