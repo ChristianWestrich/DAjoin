@@ -693,7 +693,11 @@ async function saveEditedTask(id) {
 	let prio = getPrioFromEditPopup();
 	todo.prio = prio;
 
-	let subtasks = getSubtasks();
+	let subtasksTexts = getSubtasks();
+	const subtasks = subtasksTexts.map((text) => ({
+		description: text,
+		state: "unchecked",
+	  }));
 	todo.subtasks = subtasks;
 
 	for (let i = 0; i < todos.length; i++) {
