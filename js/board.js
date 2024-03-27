@@ -220,7 +220,12 @@ function getCheckedSubTasks(task) {
 		}
 	}
 	width = checked / len;
-	return width + '00';
+	if(width == 1){
+		return width + "00";
+	}else{
+		return (width + "0" )* 100
+	}
+	
 }
 
 function getCheckedSubTasksLength(task) {
