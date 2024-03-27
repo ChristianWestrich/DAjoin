@@ -482,7 +482,17 @@ function allowDrop(ev) {
 }
 
 async function moveTo(status) {
-	todos[currentDraggedElement]['status'] = status;
+	const todo = todos.find((t) => t.taskID === currentDraggedElement);
+
+
+	todo.status = status;
+	
+	for (let i = 0; i < todos.length; i++) {
+		if (todos[i].taskID === todo.taskID) {
+			todos[i] = todo;
+		}
+	}
+
 	await saveToServer('tasks', todos);
 
 	updateHTML();
