@@ -2,6 +2,7 @@ let contacts = [];
 
 function init() {
 	loadFromServer('contacts', contacts);
+  loadTaskIdFromServer('taskId');
 }
 
 function addTaskPopUp(status) {
@@ -125,7 +126,7 @@ function addTaskPopUp(status) {
               </div>
             </div>
             <div class="input-container">
-              <label for="add-task-category-select"
+              <label for="add-task-category-select" class="add-task-label"
                 >Category<span class="add-task-req-star">*</span></label
               >
               <select
@@ -144,7 +145,7 @@ function addTaskPopUp(status) {
               </select>
             </div>
             <div class="input-container">
-              <label class="edit-subtask-input" for="">Subtasks</label>
+              <label class="edit-subtask-input" for="edit-subtask-input">Subtasks</label>
               <div class="edit-subtask-position">
                 <input
                   class="edit-subtask-input"
