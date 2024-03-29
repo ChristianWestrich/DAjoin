@@ -4,15 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../js/script.js" ></script>
-    <script src="../js/contacts.js" ></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/contacts.js"></script>
     <link rel="stylesheet" href="../css/contacts.css">
     <link rel="stylesheet" href="../css/fonts.css">
-     <link
-			rel="icon"
-			href="../assets/img/index/Logo for Favicon.svg"
-			type="image/x-icon"
-		/>
+    <link rel="icon" href="../assets/img/index/Logo for Favicon.svg" type="image/x-icon" />
     <title>JOIN - Contacts</title>
 </head>
 
@@ -21,11 +17,12 @@
     <div w3-include-html="../includes/sidebar.html" style="z-index: 1;"></div>
     <div w3-include-html="../includes/header.html"></div>
 
-    
+
     <div class="main-container">
         <div class="contacts-container" id="contacts-container">
             <div class="button-container">
-                <button onclick="showAddContact()">Add new contact <img src="../assets/img/contact/person_add.svg"></button>
+                <button onclick="showAddContact()">Add new contact <img
+                        src="../assets/img/contact/person_add.svg"></button>
             </div>
             <div class="contacts-overview" id="contacts-overview"></div>
         </div>
@@ -56,9 +53,9 @@
                     </div>
                 </div>
                 <div class="contact-container-right-side">
-                        <div class="contact-logo">
-                            <img src="../assets/img/contact/person.svg">
-                        </div>
+                    <div class="contact-logo">
+                        <img src="../assets/img/contact/person.svg">
+                    </div>
 
                     <div>
                         <form onsubmit="addNewContact(); return false">
@@ -66,10 +63,11 @@
                                 <input type="text" required placeholder="First Name" id="first-name">
                                 <input type="text" required placeholder="Last Name" id="last-name">
                                 <input type="email" required placeholder="Email" id="email">
-                                <input type="tel" required placeholder="Phone" pattern="[0-9]+" title="Please enter only digits" id="phone-number">
+                                <input type="tel" required placeholder="Phone" pattern="[0-9]+"
+                                    title="Please enter only digits" id="phone-number">
                             </div>
                             <div class="contact-button-fields">
-                                <button id="cancel-btn" onclick="cancelContactCreation()">Cancel</button>
+                                <button type="button" id="cancel-btn" onclick="cancelContactCreation()">Cancel</button>
                                 <button id="create-btn">Create contact</button>
                             </div>
                         </form>

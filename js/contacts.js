@@ -19,10 +19,9 @@ let contactId = 0;
 let contacts = [];
 let currenthighlighted = 0;
 
-
 // function for adding a new contact
 async function addNewContact() {
-  document.body.classList.add('scrollable')
+  document.body.classList.add("scrollable");
   let firstName = document.getElementById("first-name").value;
   let lastName = document.getElementById("last-name").value;
   let email = document.getElementById("email").value;
@@ -54,9 +53,9 @@ async function saveToServer(key, value) {
   }).then((response) => response.json());
 }
 
-//open the contact information from the contact of the contact list 
+//open the contact information from the contact of the contact list
 function showAddContact() {
-  document.body.classList.add('scrollable')
+  document.body.classList.add("scrollable");
   document.getElementById("add-contact").style.display = "flex";
   document.getElementById("contact-overlay").style.display = "block";
   setCursor();
@@ -83,10 +82,13 @@ function formatName(firstName, lastName) {
 
 function cancelContactCreation() {
   clearAdd();
-  document.body.classList.remove('scrollable')
+  document.body.classList.remove("scrollable");
   document.getElementById("add-contact").style.display = "none";
   document.getElementById("contact-overlay").style.display = "none";
-  document.getElementById('single-content-container-box').style.display = "flex";
+  if (document.getElementById("single-content-container-box")) {
+    document.getElementById("single-content-container-box").style.display =
+      "flex";
+  }
 }
 
 async function deleteContact(i) {
@@ -99,17 +101,28 @@ async function deleteContact(i) {
 }
 
 function editContact(z) {
-  document.body.classList.add('scrollable');
+  document.body.classList.add("scrollable");
   renderEditContainer(z);
-  document.getElementById('single-content-container-box').style.display = "none";
+  document.getElementById("single-content-container-box").style.display =
+    "none";
   document.getElementById("edit-contact").style.display = "flex";
   document.getElementById("contact-overlay").style.display = "block";
-  document.getElementById("edit-first-name").value = `${contacts[z]["first-name"]}`;
-  document.getElementById("edit-last-name").value = `${contacts[z]["last-name"]}`;
+  document.getElementById(
+    "edit-first-name"
+  ).value = `${contacts[z]["first-name"]}`;
+  document.getElementById(
+    "edit-last-name"
+  ).value = `${contacts[z]["last-name"]}`;
   document.getElementById("edit-email").value = `${contacts[z]["email"]}`;
-  document.getElementById("edit-phone-number").value = `${contacts[z]["phone"]}`;
-  document.getElementById("edit-contact-logo").style.backgroundColor = `${contacts[z]["badgeColor"]}`;
-  document.getElementById("edit-initials").innerHTML = `${contacts[z]["initials"]}`;
+  document.getElementById(
+    "edit-phone-number"
+  ).value = `${contacts[z]["phone"]}`;
+  document.getElementById(
+    "edit-contact-logo"
+  ).style.backgroundColor = `${contacts[z]["badgeColor"]}`;
+  document.getElementById(
+    "edit-initials"
+  ).innerHTML = `${contacts[z]["initials"]}`;
 }
 
 function saveNewContactInformation(i) {
@@ -126,7 +139,7 @@ function saveNewContactInformation(i) {
 function closeEditOverlay() {
   document.getElementById("edit-contact").style.display = "none";
   document.getElementById("contact-overlay").style.display = "none";
-  document.body.classList.remove('scrollable')
+  document.body.classList.remove("scrollable");
 }
 
 function renderEditContainer(i) {
@@ -154,7 +167,7 @@ function renderEditContainer(i) {
                                 <input type="text" required placeholder="First Name" id="edit-first-name">
                                 <input type="text" required placeholder="Last Name" id="edit-last-name">
                                 <input type="email" required placeholder="Email" id="edit-email">
-                                <input type="tel" required placeholder="Phone" pattern="[0-9]{6}/[0-9]{9}" title="Please enter only digits in the following Format XXXXX/XXXXX" id="edit-phone-number">
+                                <input type="tel" required placeholder="Phone" pattern="[0-9]+" title="Please enter only digits in the following Format XXXXX/XXXXX" id="edit-phone-number">
                             </div>
                             <div class="contact-button-fields">
                                 <button id="delete-btn" onclick="deleteContact(${i})">Delete</button>
@@ -221,9 +234,9 @@ function renderContactDiv(contactsInLetters, letter) {
 }
 // render function for the contact information overlay
 function openContact(i) {
-  document.getElementById('add-contact-mobile').classList.add('d-none');
-  document.body.classList.add('scrollable')
-  document.getElementById('single-contact').style.display ="flex"
+  document.getElementById("add-contact-mobile").classList.add("d-none");
+  document.body.classList.add("scrollable");
+  document.getElementById("single-contact").style.display = "flex";
   document.getElementById("single-contact-information").style.display = "flex";
   for (let z = 0; z < contacts.length; z++) {
     let user = contacts[z];
@@ -284,28 +297,23 @@ function openContact(i) {
 
 //highligts contact in contact-list
 async function highlightContact(i) {
-  
   currenthighlighted = i;
   const contactBox = document.getElementById(i);
-  contactBox.classList.add('selected')
-  }
-
+  contactBox.classList.add("selected");
+}
 
 async function removeCurrentHighlighted() {
   if (currenthighlighted > 0) {
     const contactBox = document.getElementById(currenthighlighted);
     try {
-    contactBox.classList.remove('selected')
-    }
-    catch {
-      
-    }
+      contactBox.classList.remove("selected");
+    } catch {}
   }
 }
 
 async function initContacts() {
   await loadFromServer("contacts", contacts);
-  await loadIdFromServer('contactId')
+  await loadIdFromServer("contactId");
   renderContact(contacts);
 }
 
@@ -327,9 +335,9 @@ function contactCreateSuccess() {
 }
 
 function back() {
-  document.getElementById('add-contact-mobile').classList.remove('d-none');
-  let element = document.getElementById('single-content-container-box');
-  document.getElementById('single-contact').style.display ="none"
-  document.body.classList.remove('scrollable')
-  element.style.display = "none";  
+  document.getElementById("add-contact-mobile").classList.remove("d-none");
+  let element = document.getElementById("single-content-container-box");
+  document.getElementById("single-contact").style.display = "none";
+  document.body.classList.remove("scrollable");
+  element.style.display = "none";
 }
