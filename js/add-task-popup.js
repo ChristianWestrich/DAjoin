@@ -20,7 +20,7 @@ function addTaskPopUp(status) {
 					<div class="input-container">
 						<label for="add-task-title-input" class="add-task-label">Title<span
 								class="add-task-req-star">*</span></label>
-						<input class="add-task-label-input" onchange="checkRequirements()"
+						<input class="add-task-label-input" required onchange="checkRequirements()"
 							id="add-task-title-input" placeholder="Enter a title" />
 						<div class="add-task-required">
 							<span id="add-task-required" class="d-none">This field is requiered</span>
@@ -46,7 +46,7 @@ function addTaskPopUp(status) {
 				<div class="add-task-input-right">
 					<div class="input-container">
 						<label for="add-task-date-input">Due date<span class="add-task-req-star">*</span></label>
-						<input class="add-task-label-input" onchange="checkRequirements()"
+						<input class="add-task-label-input" required onchange="checkRequirements()"
 							placeholder="dd/mm/yyyy" type="date" id="add-task-date-input" />
 						<div class="add-task-required">
 							<span id="add-task-required" class="d-none">This field is requiered</span>
@@ -70,7 +70,7 @@ function addTaskPopUp(status) {
 					<div class="input-container">
 						<label for="add-task-category-select" class="add-task-label">Category<span
 								class="add-task-req-star">*</span></label>
-						<select type="select" , class="select" id="add-task-category-select" 
+						<select type="select" , class="select" id="add-task-category-select" required
 							onchange="checkRequirements()">
 							<option value="" disabled selected hidden type="option">
 								Select task category
