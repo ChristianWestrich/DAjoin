@@ -97,7 +97,7 @@ body {
 	width: 100vh;
 	height: 10vh;
 	border-radius: 16px;
-	gap: 10px;
+	gap: 16px;
 }
 .page-mobile svg {
 	vertical-align: middle;

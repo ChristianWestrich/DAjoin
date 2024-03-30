@@ -1,6 +1,7 @@
 let currentDraggedElement;
 let subTaskStateArray = [];
 
+
 let todos = [];
 contacts = [];
 
@@ -14,6 +15,7 @@ function updateBoard() {
 }
 
 
+
 function searchTasks() {
 	let searchQuery = document.getElementById('search').value.toLowerCase();
 
@@ -24,6 +26,7 @@ function searchTasks() {
 			todo.description.toLowerCase().includes(searchQuery)
 		);
 	});
+
 	updateHTML(filteredTodos);
 }
 
@@ -190,6 +193,7 @@ async function moveTask(taskID, direction) {
 			todos[i] = todo;
 		}
 	}
+	todos[6].status = "toDo"
 	await saveToServer('tasks', todos);
 	updateHTML();
 }
@@ -689,6 +693,8 @@ async function saveEditedTask(id) {
 	  }));
 	todo.subtasks = subtasks;
 
+	todo.assignedTo =  getContactsIds();
+
 	for (let i = 0; i < todos.length; i++) {
 		if (todos[i].taskID === todo.taskID) {
 			todos[i] = todo;
@@ -697,6 +703,23 @@ async function saveEditedTask(id) {
 	await saveToServer('tasks', todos);
 	updateHTML();
 	closePopupEdit();
+}
+
+function getContactsIds(){
+	let container = document.getElementById("add-task-selected-contact"); 
+    let buttons = container.querySelectorAll(".logo-contacts"); 
+
+    let contacts = []; 
+
+    buttons.forEach(function(button) {
+        let id = button.id; 
+        let number = id.match(/\d+$/);
+        if (number) {
+            contacts.push(number[0]); 
+        }
+    });
+
+    return contacts;
 }
 
 function getPrioFromEditPopup() {
@@ -716,7 +739,7 @@ function getPrioFromEditPopup() {
 function fillContactsToAssign(id) {
 	const task = todos.find((t) => t.taskID == id);
 
-	contactsToAssign = [];
+	contactsToAssign;
 
 	task.assignedTo.forEach((contactId) => {
 		const foundContact = contacts.find(
