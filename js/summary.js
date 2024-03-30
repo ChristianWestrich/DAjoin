@@ -5,7 +5,7 @@ async function initSummary() {
   let toDo = tasksForSummary.filter((t) => t.status === 'toDo').length;
   let done = tasksForSummary.filter((t) => t.status === 'done').length;
   let inProgress = tasksForSummary.filter((t) => t.status === 'inProgress').length;
-  let awaitFB = tasksForSummary.filter((t) => t.status === 'awaitFB').length;
+  let awaitFB = tasksForSummary.filter((t) => t.status === 'awaitFeedback').length;
   let urgent = tasksForSummary.filter((t) => t.prio === 1).length;
   let amountTasks = tasksForSummary.length;
   updateSummaryCointainer(toDo, done, inProgress, awaitFB, urgent,amountTasks);

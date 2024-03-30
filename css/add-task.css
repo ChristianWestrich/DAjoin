@@ -442,16 +442,7 @@ ul {
   }
 
   .add-task-divider {
-    height: 1px;
-    width: 100%;
-    margin: 20px 0 20px 0;
-  }
-  .add-task-form {
-    width: 100%;
-  }
-
-  .add-task-input-left {
-    width: 100%;
+    display: none;
   }
 }
 
@@ -470,8 +461,7 @@ ul {
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-
-  } 
+  }
 }
 
 @media (max-width: 550px) {
@@ -487,7 +477,7 @@ ul {
     flex-direction: column;
     justify-content: space-between;
     padding-right: 0;
-  } 
+  }
 
   .add-task-form {
     width: 100%;
@@ -536,12 +526,10 @@ ul {
 }
 
 @media (max-width: 350px) {
-
   .add-task-kill-all-input-btn {
     width: 100px;
   }
   .add-task-create-btn {
     width: 150px;
   }
-
 }

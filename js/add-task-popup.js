@@ -32,7 +32,7 @@ function addTaskPopUp(status) {
 							placeholder="Enter a Description"></textarea>
 					</div>
 					<div class="input-container">
-						<label class="add-task-label" >Assigned to</label>
+						<label class="add-task-label" for="add-task-assign-select">Assigned to</label>
 						<select class="select add-task-label-input" id="add-task-assign-select"
 							onchange="getAssignedContacts()">
 							<option type="option" , value="Select contacts to assign" disabled selected hidden>
@@ -53,7 +53,7 @@ function addTaskPopUp(status) {
 						</div>
 					</div>
 					<div class="input-container">
-						<label class="add-task-label" >Prio</label>
+						<label for="add-task-prio-1" class="add-task-label" >Prio</label>
 						<div class="button-container" id="add-task-prio-input">
 							<button class="white" id="add-task-prio-1" onclick="togglePrioButton(1)" type="button">
 								Urgent<img src="../assets/img/add_task/urgent.svg" alt="" />
@@ -81,7 +81,7 @@ function addTaskPopUp(status) {
 						</select>
 					</div>
 					<div class="input-container">
-						<label class="edit-subtask-input" for="edit-subtask-input">Subtasks</label>
+						<label class="edit-subtask-label" for="edit-subtask-input">Subtasks</label>
 						<div class="edit-subtask-position">
 							<input class="edit-subtask-input" type="text" id="edit-subtask-input"
 								placeholder="Add new subtask" />
