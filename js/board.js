@@ -687,9 +687,9 @@ async function saveEditedTask(id) {
 	todo.prio = prio;
 
 	let subtasksTexts = getSubtasks();
-	const subtasks = subtasksTexts.map((text) => ({
+	const subtasks = subtasksTexts.map((text, index) => ({
 		description: text,
-		state: "unchecked",
+		state: todo.subtasks[index].state,
 	  }));
 	todo.subtasks = subtasks;
 
@@ -700,6 +700,7 @@ async function saveEditedTask(id) {
 			todos[i] = todo;
 		}
 	}
+	todos[0].assignedTo = []
 	await saveToServer('tasks', todos);
 	updateHTML();
 	closePopupEdit();
