@@ -184,6 +184,7 @@ async function moveTask(taskID, direction) {
 		} else if (status === 'awaitFeedback') {
 			todo.status = 'done';
 		} else if (status === 'done') {
+			
 			return;
 		}
 	}
@@ -193,7 +194,6 @@ async function moveTask(taskID, direction) {
 			todos[i] = todo;
 		}
 	}
-	todos[6].status = "toDo"
 	await saveToServer('tasks', todos);
 	updateHTML();
 }

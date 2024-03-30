@@ -200,7 +200,6 @@ body {
 	cursor: pointer;
 	position: relative;
 	box-sizing: border-box;
-	height: 300px;
 	width: calc(100% - 2px);
 }
 
@@ -328,6 +327,10 @@ body {
 	width: 100%;
 	justify-content: space-around;
 	display: flex;
+	position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+    left: 0;
 }
 
 .arrow-buttons {
@@ -345,11 +348,10 @@ body {
 	border-radius: 10px;
 	font-size: 24px;
 	cursor: pointer;
+	z-index: 10;
 }
 
-.arrow-buttons:disabled {
-	background: lightgray;
-}
+
 
 .rotated {
 	transform: rotate(5deg);
@@ -1081,6 +1083,10 @@ ul {
 }
 
 @media (max-width: 660px) {
+
+	#done{
+		margin-bottom:80px;
+	}
 	.plus-btn {
 		display: none;
 	}
@@ -1121,7 +1127,15 @@ ul {
 
 	.status-container {
 		flex-direction: row;
+		overflow-x: auto;
+		min-height: 400px !important;
+		-ms-overflow-style: none; 
+		overflow-y: scroll;
+		scrollbar-width: none; 
+
+
 	}
+
 	.todo-pop-up {
 		width: 100vw;
 		height: 100vh;
